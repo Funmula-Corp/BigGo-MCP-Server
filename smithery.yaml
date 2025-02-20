@@ -1,0 +1,45 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - clientId
+      - clientSecret
+    properties:
+      clientId:
+        type: string
+        description: The client ID for BigGo API.
+      clientSecret:
+        type: string
+        description: The client secret for BigGo API.
+      region:
+        type: string
+        default: TW
+        description: Region for product search
+      logLevel:
+        type: string
+        default: INFO
+        description: Log level for the server.
+      esProxyUrl:
+        type: string
+        default: https://api.biggo.com/api/v1/mcp-es-proxy/
+        description: Elasticsearch proxy URL.
+      esVerifyCerts:
+        type: boolean
+        default: true
+        description: Verify Elasticsearch certificates.
+      authTokenUrl:
+        type: string
+        default: https://api.biggo.com/auth/v1/token
+        description: Auth token URL.
+      authVerifyCerts:
+        type: boolean
+        default: true
+        description: Verify Auth certificates.
+  commandFunction:
+    # A function that produces the CLI command to start the MCP on stdio.
+    |-
+    (config) => ({ command: 'uv', args: ['run', '--directory', '/app/src/biggo_mcp_server', 'biggo-mcp-server', '--client-id', config.clientId, '--client-secret', config.clientSecret, '--region', config.region, '--log-level', config.logLevel, '--es-proxy-url', config.esProxyUrl, '--es-verify-certs', config.esVerifyCerts.toString(), '--auth-token-url', config.authTokenUrl, '--auth-verify-certs', config.authVerifyCerts.toString()] })
