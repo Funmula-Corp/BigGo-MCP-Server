@@ -1,4 +1,5 @@
 # 🔍 BigGo MCP Server
+[![smithery badge](https://smithery.ai/badge/@Funmula-Corp/BigGo-MCP-Server)](https://smithery.ai/server/@Funmula-Corp/BigGo-MCP-Server)
 
 A Model Context Protocol (MCP) server that provides product search, price history tracking, and specification search capabilities.
 
@@ -76,6 +77,14 @@ Show me Japanese air conditioners with heating capability and low noise levels
 1. Python 3.13 or higher
 2. [uv package manager](https://docs.astral.sh/uv/)
 3. BigGo API credentials (client ID and secret) for specification search. Available at [BigGo Account](https://account.biggo.com/setting/token)
+
+### Installing via Smithery
+
+To install BigGo MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@Funmula-Corp/BigGo-MCP-Server):
+
+```bash
+npx -y @smithery/cli install @Funmula-Corp/BigGo-MCP-Server --client claude
+```
 
 ### 💻 From Local Project
 Use absolute path for `--directory` argument.
