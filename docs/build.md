@@ -26,7 +26,7 @@ uv run --group test pytest
 ### Use the Alive tool
 Sends a request to check if the SSE server is alive
 ```bash
-uvx BigGo-MCP-Server-Alive-Checker --from BigGo-MCP-Server
+uvx --from BigGo-MCP-Server BigGo-MCP-Server-Alive-Checker
 ```
 
 ## Install From Local Project
