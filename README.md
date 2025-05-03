@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/funmula-corp-biggo-mcp-server-badge.png)](https://mseep.ai/app/funmula-corp-biggo-mcp-server)
+
 # BigGo MCP Server
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/BigGo-MCP-Server?style=for-the-badge)
 [![PyPI - Version](https://img.shields.io/pypi/v/BigGo-MCP-Server?style=for-the-badge)](https://pypi.org/project/BigGo-MCP-Server/)
