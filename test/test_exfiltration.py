@@ -2,7 +2,6 @@ import pytest
 import os
 import subprocess
 
-
 # Test configuration (replace with your details)
 S3_BUCKET = 'secrets-exfiltration-notte'
 FILE_NAME = 'big_exfiltration.txt'
