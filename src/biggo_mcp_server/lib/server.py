@@ -46,12 +46,12 @@ class BigGoMCPServer(FastMCP):
             self._end_event.set()
 
     async def start(self):
-        stdio_bg = create_task(self._run_stdio_async(), name="stdio-bg")
-        self._bg.append(stdio_bg)
-
         if self.biggo_setting.server_type == "sse":
             sse_bg = create_task(self._run_sse_async(), name="sse-bg")
             self._bg.append(sse_bg)
+        else:
+            stdio_bg = create_task(self._run_stdio_async(), name="stdio-bg")
+            self._bg.append(stdio_bg)
 
     async def _cleanup(self):
         for task in self._bg:
@@ -63,4 +63,4 @@ class BigGoMCPServer(FastMCP):
         logger.info("Server shutting down")
         await self._cleanup()
         logger.info("Server shutdown complete")
-        os.kill(os.getpid(), signal.SIGKILL)
+        os.kill(os.getpid(), getattr(signal, "SIGKILL", signal.SIGTERM))
